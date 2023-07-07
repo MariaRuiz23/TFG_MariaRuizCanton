@@ -55,31 +55,6 @@ def Gauss_seidel(A,b,x0,E,norma,n):    #x0 es el punto semilla, E el error o tol
         x0 = x1.copy()
 
 
-def Sor(A,b,x0,norma,error,k,w):
-    D = np.diag(np.diag(A))
-    L = -np.tril(A - D)
-    U = -np.triu(A - D)
-    M = D - w*L
-    N = (1-w)*D + w*U
-    B = np.dot(la.inv(M), N)
-    c = np.dot(la.inv(M), w*b)
-    [val,vec] = la.eig(B) # valores propios y vectores propios
-    ro = max(abs(val))
-    if ro>=1:       #si el método no converge
-        print('El método no converge')
-        return [[],0,ro]
-    i=1
-    while True:
-        if i>=k:
-            print('El método no converge en',k,'pasos')
-            return [0,k,ro]
-        x1 = c + np.dot(B,x0)
-        if la.norm(x1-x0,norma)<error:
-            return [x1,i,ro]
-        i = i+1
-        x0 = x1.copy()
-
-
 def adi(N,r,sigma,f,n,x0,norma,E):  #N num de puntos en Omega,  n num max pasos
     #Paso 1: construcción de las matrices H, V, SIGMA, (A = H+V+SIGMA)
     H = 2 * np.eye(N ** 2) + np.diagflat(-1 * np.ones((1, N ** 2 - 1)), k=-1) + np.diagflat(-1 * np.ones((1, N ** 2 - 1)), k=1)

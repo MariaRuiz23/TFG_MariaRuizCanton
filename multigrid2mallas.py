@@ -163,19 +163,3 @@ plt.xlabel('x')
 plt.ylabel('Errores')
 plt.show()"""
 
-
-
-
-
-
-
-"""
-plt.plot(x3,result3, x33, f(x33))
-plt.title('Aproximación 3')
-plt.legend(('Solución aproximada','sen(x)'),loc='upper right')
-plt.xlabel('x')
-plt.ylabel('sen(x)')
-plt.show()"""
-
-#print(result2)
-#print(result3)
