@@ -60,9 +60,9 @@ N3 = 9
 x01 = np.zeros(N1**2)
 x02 = np.zeros(N2**2)
 x03 = np.zeros(N3**2)
-result1 = adi(N1,2,0,f,400,x01,np.inf,10**(-6))[0]
-result2 = adi(N2,2,0,f,400,x02,np.inf,10**(-6))[0]
-result3 = adi(N3,2,0,f,400,x03,np.inf,10**(-6))[0]
+result1 = adi(N1,2,1,f,400,x01,np.inf,10**(-4))[0]
+result2 = adi(N2,2,1,f,400,x02,np.inf,10**(-4))[0]
+result3 = adi(N3,2,1,f,400,x03,np.inf,10**(-4))[0]
 
 
 def solexacta(x,y):
@@ -93,9 +93,8 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_title('Aproximación con N=3')
 
-plt.show()"""
-
-
+plt.show()
+"""
 
 x2 = np.array([1/7, 2/7, 3/7, 4/7, 5/7, 6/7,1/7, 2/7, 3/7, 4/7, 5/7, 6/7,1/7, 2/7, 3/7, 4/7, 5/7, 6/7,1/7, 2/7, 3/7, 4/7, 5/7, 6/7,1/7, 2/7, 3/7, 4/7, 5/7, 6/7,1/7, 2/7, 3/7, 4/7, 5/7, 6/7])
 y2 = np.array([1/7,1/7,1/7,1/7,1/7,1/7,2/7,2/7,2/7,2/7,2/7,2/7,3/7,3/7,3/7,3/7,3/7,3/7,4/7,4/7,4/7,4/7,4/7,4/7,5/7,5/7,5/7,5/7,5/7,5/7,6/7,6/7,6/7,6/7,6/7,6/7])
@@ -137,8 +136,7 @@ plt.ylabel("Y")
 plt.show()"""
 
 #Aproximación vs solución exacta N=9
-"""
-fig = plt.figure()
+"""fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 curve1 = ax.plot(x3, y3, result3)
@@ -183,7 +181,7 @@ sol1 = []
 for i in range(len(x1)):
     sol1.append(solexacta(x1[i],y1[i]))
 for j in range(len(sol1)):
-    errores1.append(result1[j]-sol1[j])
+    errores1.append(np.abs(result1[j]-sol1[j]))
 
 y11 = []
 y12 = []
@@ -251,9 +249,7 @@ for n in range(6):
 plt.title("Media errores con N=6")
 plt.xlabel("X")
 
-plt.show()
-"""
-
+plt.show()"""
 
 #N = 9
 errores3 = []
